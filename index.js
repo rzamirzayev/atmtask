@@ -15,15 +15,15 @@ while(finish){
                     alert("Hesabiniz bu miqdarda pul yoxdur");
                 }
                 else{
-                    Number(money-=cashMoney);
+                    cashingOutOperation(cashMoney);
                     alert("Hesabinizdan "+cashMoney+"manat cekdiniz");
                     
                 }
               break;
             case "2":
                 let includeMoney=prompt("Daxil etmek istediyiniz meblegi daxil edin");
-                if(Number(includeMoney)>0){
-                   Number(money+=includeMoney);
+                if(includeMoney>0){
+                    cashingInOperation(includeMoney);
                     alert("Hesabiniza kocuruldu");
                 }
                 else{
@@ -31,7 +31,7 @@ while(finish){
                 }
                 break;
             case "3":
-                alert("Hesabinizda olan miqdar:"+ Number(money));
+                alert("Hesabinizda olan miqdar:"+balanceAccount());
                 break;
             case "4":
                 alert("Cixis elediz");
@@ -48,6 +48,17 @@ while(finish){
         alert("Bu adda istifadeci yoxdur");
     }
 }
-    
+function cashingOutOperation(cashMoney){
+    money-=Number(cashMoney);
+    return money;
+}
+function cashingInOperation(includeMoney){
+    money+=Number(includeMoney);
+    return money;
+}
+function balanceAccount(){
+    return money;
+}
+
     
 
